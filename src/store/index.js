@@ -23,14 +23,19 @@ export default createStore({
       }
     },
 
-    /* register({ commit }, credentials) {
-      return axios
-        .post('http://localhost:3000/register', credentials)
-        .then(({ data }) => {
-          commit('SET_USER_DATA', data)
-        })
-        .catch((err) => console.log(err))
-    }, */
+    async login({ commit }, credentials) {
+      try {
+        const { data } = await axios.post('http://localhost:3000/login', credentials)
+        commit('SET_USER_DATA', data)
+      } catch (err) {
+        return console.log(err)
+      }
+    },
   },
   modules: {},
+  getters: {
+    loggedIn: (state) => {
+      return !!state.user
+    },
+  },
 })

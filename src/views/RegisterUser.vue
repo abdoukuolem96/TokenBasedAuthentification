@@ -11,6 +11,7 @@
       <input type="password" name="password" v-model="password" />
 
       <button type="submit" name="submit">Register</button>
+      <router-link :to="{ name: 'login' }">Already have an account ? Login</router-link>
     </form>
   </div>
 </template>
