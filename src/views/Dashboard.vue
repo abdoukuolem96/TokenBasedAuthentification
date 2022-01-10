@@ -21,7 +21,7 @@ export default {
     }
   },
   created() {
-    axios.get('//localhost:3000/dashboard').then(({ data }) => {
+    axios.get('http://localhost:3000/dashboard').then(({ data }) => {
       this.events = data.events.events
       this.isLoading = false
     })
