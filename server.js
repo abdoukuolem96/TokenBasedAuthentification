@@ -1,3 +1,5 @@
+process.stdout.write('\x1Bc')
+
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const cors = require('cors')
@@ -36,10 +38,8 @@ app.post('/register', (req, res) => {
       password: req.body.password,
       // In a production app, you'll want to encrypt the password
     }
-
     const data = JSON.stringify(user, null, 2)
     var dbUserEmail = require('./db/user.json').email
-
     if (dbUserEmail === req.body.email) {
       res.sendStatus(400)
     } else {
